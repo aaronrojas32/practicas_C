@@ -6,7 +6,7 @@
  *
  * @autor: Aaron Rojas Gutiérrez
  *
- * @fecha: 16/03/2023
+ * @fecha: 22/03/2023
  */
 
 #include <stdio.h>
@@ -24,52 +24,35 @@ int main(){
     anio = pideAnio();
 
     switch (mes) {
-        case ENERO:
-            dias = 31;
-            break;
-        case FEBRERO:
-            if ((anio % 4 == 0 && anio % 100 != 0) || anio % 400 == 0) {
-                dias = 29;
-            } else {
-                dias = 28;
-            }
-            break;
-        case MARZO:
-            dias = 31;
-            break;
-        case ABRIL:
-            dias = 30;
-            break;
-        case MAYO:
-            dias = 31;
-            break;
-        case JUNIO:
-            dias = 30;
-            break;
-        case JULIO:
-            dias = 31;
-            break; 
-        case AGOSTO:
-            dias = 31;
-            break;
-        case SEPTIEMBRE:
-            dias = 30;
-            break;
-        case OCTUBRE:
-            dias = 31;
-            break;
-        case NOVIEMBRE:
-            dias = 30;
-            break;
-        case DICIEMBRE:
-            dias = 31;
-            break;
-        default:
-            printf("Mes no válido\n");
-            return 1;
+    case ENERO:
+    case MARZO:
+    case MAYO:
+    case JULIO:
+    case AGOSTO:
+    case OCTUBRE:
+    case DICIEMBRE:
+        dias = 31;
+        break;
+    case ABRIL:
+    case JUNIO:
+    case SEPTIEMBRE:
+    case NOVIEMBRE:
+        dias = 30;
+        break;
+    case FEBRERO:
+        if ((anio % 4 == 0 && anio % 100 != 0) || anio % 400 == 0) {
+            dias = 29;
+        } else {
+            dias = 28;
+        }
+        break;
+    default:
+        printf("Mes no valido\n");
+        return 1;
     }
 
-    printf("El mes %d del año %d tiene %d días.\n", mes, anio, dias);
+
+    printf("El mes %d del anio %d tiene %d dias.\n", mes, anio, dias);
     return 0;
 }
 
@@ -113,9 +96,9 @@ int pideMes(){
 int pideAnio(){
     int anio;
 
-    printf("\nIntroduzca un año: ");
+    printf("\nIntroduzca un anio: ");
     scanf("%d",&anio);
     limpiarBuffer();
-
+    
     return anio;
 }
